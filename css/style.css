@@ -101,3 +101,17 @@ header .madeby {
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 420px) {
+    header {
+        padding: 40px 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header .madeby {
+        font-size: 1rem;
+    }
+}
