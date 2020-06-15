@@ -1,14 +1,14 @@
 <html>
 
     <head>
-        <title>T/title>
-            <!-- Material Components for the web -->
-            <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-            <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-            <!-- Material Icons -->
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <link rel="stylesheet" href="css/normalize.css">
-            <link rel="stylesheet" href="css/style.css">
+        <title>データ工学概論 201811417</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <!-- Material Components for the web -->
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <header>
         <div class="centering">
@@ -20,11 +20,49 @@
     <body>
         <div class="centering">
             <h2>テーブル</h2>
-            <ul class="showTables">
-                <li><a href="getAllData_emoji.php">emoji</a></li>
-                <li><a href="getAllData_genre.php">genre</a></li>
-                <li><a href="getAllData_user.php">user</a></li>
-            </ul>
+            <div class="tables">
+                <a class="mdc-card" href="getAllData_emoji.php">
+                    <div class="mdc-card-content">
+                        <div class="title">emoji</div>
+                        <div class="description">絵文字本体を格納するテーブル</div>
+                        <hr>
+                        <div class="title sub">要素</div>
+                        <ul class="chips">
+                            <li class="focused">id</li>
+                            <li>title</li>
+                            <li>image_path</li>
+                            <li>shortcut</li>
+                            <li>uploadedBy_id</li>
+                            <li>genre_id</li>
+                        </ul>
+                    </div>
+                </a>
+                <a class="mdc-card" href="getAllData_genre.php">
+                    <div class="mdc-card-content">
+                        <div class="title">genre</div>
+                        <div class="description">ジャンルを格納するテーブル</div>
+                        <hr>
+                        <div class="title sub">要素</div>
+                        <ul class="chips">
+                            <li class="focused">id</li>
+                            <li>username</li>
+                            <li>icon_path</li>
+                        </ul>
+                    </div>
+                </a>
+                <a class="mdc-card" href="getAllData_user.php">
+                    <div class="mdc-card-content">
+                        <div class="title">user</div>
+                        <div class="description">ユーザーを格納するテーブル</div>
+                        <hr>
+                        <div class="title sub">要素</div>
+                        <ul class="chips">
+                            <li class="focused">id</li>
+                            <li>genre_name</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
         </div>
     </body>
 
