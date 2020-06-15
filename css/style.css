@@ -1,8 +1,11 @@
 /* root */
 :root {
-    background-color: #fafafa;
+    --bgColor: #fafafa;
+    --mainDarkColor: #23272a;
+    background-color: var(--bgColor);
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
         "Hiragino Sans", Meiryo, sans-serif;
+    box-sizing: border-box;
 }
 
 .centering {
@@ -15,7 +18,7 @@
 header {
     padding: 100px 0;
     margin-bottom: 60px;
-    background-color: #23272a;
+    background-color: var(--mainDarkColor);
     color: #fafafa;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
@@ -95,6 +98,82 @@ header .madeby {
 .mdc-card ul.chips > li.focused {
     background-color: #607d8b;
     color: #eceff1;
+}
+
+/* search */
+.search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    padding: 5px 5px 5px 20px;
+}
+
+.search-bar * {
+    outline: none;
+    vertical-align: middle;
+}
+
+.search-bar .search-input {
+    border: none;
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+.search-bar .search-submit {
+    border: none;
+    border-radius: 100px;
+    background-color: var(--mainDarkColor);
+    color: #fafafa;
+    padding: 10px;
+    margin: 0;
+    transition: all 0.3s;
+}
+
+.search-bar .search-submit:hover {
+    opacity: 0.8;
+}
+
+/* list */
+.emoji-list {
+    list-style-type: none;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.emoji-list .emoji-list-item {
+    display: flex;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.emoji-list .emoji-list-item:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.emoji-list .emoji-list-item .emoji-list-image {
+    width: 64px;
+    margin-right: 16px;
+}
+
+.emoji-list .emoji-list-item .emoji-list-text {
+    margin: auto 0;
+}
+
+.emoji-list .emoji-list-item .emoji-list-text .title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+.emoji-list .emoji-list-item .emoji-list-text .shortcut {
+    color: #666666;
 }
 
 @media (max-width: 1020px) {
