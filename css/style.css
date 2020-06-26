@@ -1,11 +1,15 @@
 /* root */
 :root {
     --bgColor: #fafafa;
-    --mainDarkColor: #23272a;
+    --dark: #23272a;
+    --purple: #7289da;
     background-color: var(--bgColor);
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans", Meiryo, sans-serif;
+    font-family: Roboto, sans-serif;
     box-sizing: border-box;
+}
+
+body {
+    margin-bottom: 50px;
 }
 
 .centering {
@@ -18,7 +22,7 @@
 header {
     padding: 100px 0;
     margin-bottom: 60px;
-    background-color: var(--mainDarkColor);
+    background-color: var(--dark);
     color: #fafafa;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
@@ -28,6 +32,10 @@ header * {
 header h1 {
     font-size: 4rem;
 }
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
 header .madeby {
     font-size: 1.4rem;
     color: #bdbdbd;
@@ -36,7 +44,7 @@ header .madeby {
 /* body */
 .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 .mdc-card,
@@ -47,6 +55,11 @@ header .madeby {
 .cards .mdc-card {
     flex-basis: 30%;
     margin-bottom: 30px;
+    margin-right: 5%;
+}
+
+.cards .mdc-card:nth-child(3n) {
+    margin-right: 0;
 }
 
 .mdc-card-content {
@@ -125,7 +138,7 @@ header .madeby {
 .search-bar .search-submit {
     border: none;
     border-radius: 100px;
-    background-color: var(--mainDarkColor);
+    background-color: var(--dark);
     color: #fafafa;
     padding: 10px;
     margin: 0;
@@ -176,10 +189,66 @@ header .madeby {
     color: #666666;
 }
 
+/* add-emoji.html */
+table.emoji-upload-form th {
+    text-align: left;
+}
+table.emoji-upload-form th,
+table.emoji-upload-form td {
+    padding-right: 30px;
+    padding-bottom: 10px;
+}
+
+.emoji-upload-form input[type="text"] {
+    padding: 0.8rem;
+    margin: 0;
+    width: 400px;
+    border: 3px solid #bdbdbd;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.1s;
+    outline: none;
+}
+
+.emoji-upload-form input[type="text"]:focus {
+    border: 3px solid var(--purple);
+}
+
+.emoji-upload-form select.genre {
+    padding: 0.8rem;
+    margin: 0;
+    width: 400px;
+    border: 3px solid #bdbdbd;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.1s;
+    outline: none;
+}
+
+.btn {
+    padding: 12px 24px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--purple);
+    color: #fff;
+    margin-right: 12px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    background-color: var(--dark);
+}
+
 @media (max-width: 1020px) {
     .cards .mdc-card {
         flex-basis: 100%;
         margin-bottom: 30px;
+        margin-right: 0;
     }
 }
 
