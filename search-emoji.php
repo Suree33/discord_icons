@@ -34,22 +34,32 @@
         if (isset($_POST["search-input"]) && ($_POST["search-input"] != "")) {
             $input = mysqli_escape_string($conn, $_POST["search-input"]);
             $input = str_replace("%", "\%", $input);
-            $condition = "
-                        WHERE title LIKE \"%" . $input . "%\"";
+            $condition = "WHERE title LIKE \"%" . $input . "%\"";
+        }
+        if (isset($_POST["genre"]) && ($_POST["genre"] != "")) {
+            $genre = $_POST["genre"];
+            if ($condition == "") {
+                $condition = "WHERE genre_id=" . $genre;
+            } else {
+                $condition = $condition . "AND genre_id=" . $genre;
+            }
         }
 
         $sql = "SELECT * FROM emoji " . $condition . " ORDER BY id DESC";
         $res = mysqli_query($conn, $sql);
 
-        print("<ul class=\"emoji-list\">");
+        print("<ul class=\"emoji-list\">\n");
+        print("");
         while ($row = mysqli_fetch_array($res)) {
-            print("<li class=\"emoji-list-item\">");
-            print("<img class=\"emoji-list-image\" src=\"" . $row["image_path"] . "\" >");
-            print("<div class=\"emoji-list-text\">");
-            print("<div class=\"title\">" . $row["title"] . "</div>");
-            print("<div class=\"shortcut\">:" . $row["shortcut"] . ":</div>");
-            print("</div>");
-            print("</li>");
+            print("<li class=\"emoji-list-item\">\n");
+            print("<a href=\"emoji.php?emojiID=" . $row["id"] . "\">\n");
+            print("<img class=\"emoji-list-image\" src=\"" . $row["image_path"] . "\" >\n");
+            print("<div class=\"emoji-list-text\">\n");
+            print("<div class=\"title\">" . $row["title"] . "</div>\n");
+            print("<div class=\"shortcut\">:" . $row["shortcut"] . ":</div>\n");
+            print("</div>\n");
+            print("</a>\n");
+            print("</li>\n");
         }
         print("</ul>");
         mysqli_free_result($res);

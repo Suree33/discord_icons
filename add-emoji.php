@@ -22,6 +22,22 @@
 <body>
     <div class="centering">
         <h2>絵文字の追加</h2>
+        <?php
+        function h($s)
+        {
+            return htmlspecialchars($s, ENT_QUOTES, 'utf-8');
+        }
+
+        session_start();
+
+        if (isset($_SESSION['USERID'])) {
+            echo '<p>"' .  h($_SESSION['USERID']) . "\"としてログインしています</p><br>";
+        } else {
+            echo '<p>ログインしていません。ログインして下さい。</p>';
+            echo '<a class="btn" href="login.php">ログイン</a>';
+            exit;
+        }
+        ?>
         <form method="POST" enctype="multipart/form-data" action="uploaded_emoji.php">
             <table class="input-form">
                 <tr>
@@ -52,7 +68,7 @@
                             $sql = "SELECT * FROM genre";
                             $res = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($res)) {
-                                print("<option value=\"" . $row['id'] . "\">" . $row['genre_name'] . "</options>\n");
+                                print("<option value=\"" . $row['id'] . "\">" . $row['genre_name'] . "</option>\n");
                             }
                             mysqli_free_result($res);
                             ?>
@@ -62,7 +78,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input class="btn" type="submit"></td>
+                    <td><input class="btn" type="submit" value="追加"></td>
                 </tr>
             </table>
         </form>
